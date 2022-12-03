@@ -20,5 +20,5 @@ function get_puzzle_input(day::Integer)
 		update_puzzle_input(day)
 	end
 
-	return read(filename(day))
+	return read(filename(day)) |> String
 end
