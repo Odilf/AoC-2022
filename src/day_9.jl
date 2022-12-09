@@ -1,5 +1,5 @@
 include("utils.jl");
-input = get_puzzle_input(9);
+const input = get_puzzle_input(9);
 
 struct Move
 	direction::Vector{<:Integer}
@@ -80,3 +80,5 @@ function part2(input)
 
 	length(visited)
 end
+
+print_solution(part1, part2, input)

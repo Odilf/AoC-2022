@@ -1,6 +1,5 @@
 include("utils.jl");
-input = get_puzzle_input(5);
-print(input)
+const input = get_puzzle_input(5);
 
 function create_stacks(stack_structure::AbstractString)
 	lines = split(stack_structure, "\n")[1:end-1]
@@ -84,3 +83,5 @@ function part2(input::String)
 
 	get_top(stacks)
 end
+
+print_solution(part1, part2, input)

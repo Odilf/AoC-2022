@@ -1,5 +1,5 @@
 include("utils.jl");
-input = get_puzzle_input(6);
+const input = get_puzzle_input(6);
 
 function part1(input)
 	for i ∈ 1:length(input)-4
@@ -18,3 +18,5 @@ function part2(input)
 		end
 	end
 end
+
+print_solution(part1, part2, input)

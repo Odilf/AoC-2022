@@ -1,5 +1,5 @@
-include("utils.jl")
-input = get_puzzle_input(2)
+include("utils.jl");
+const input = get_puzzle_input(2);
 
 @enum Object Rock Paper Scissors
 
@@ -12,7 +12,7 @@ objects_dict = Dict(
 	"Z" => Scissors,
 )
 
-map(split(input, "\n")[1:end-1]) do round
+part1(input) = map(split(input, "\n")[1:end-1]) do round
 	objects = split(round, " ")
 
 	player = objects_dict[objects[2]]	
@@ -25,11 +25,7 @@ function result(player::Object, opponent::Object)
 	mod(Int(player) - Int(opponent) + 1, 3)
 end
 
-result(Rock, Rock)
-result(Paper, Scissors)
-result(Scissors, Paper)
-
-map(split(input, "\n")[1:end-1]) do round
+part2(input) = map(split(input, "\n")[1:end-1]) do round
 	objects = split(round, " ")
 
 	opponent = objects_dict[objects[1]]
@@ -40,4 +36,4 @@ map(split(input, "\n")[1:end-1]) do round
 	Int(player) + 1 + 3 * result
 end |> sum
 
-Object(mod(Int(Rock) + 0, 3))
+print_solution(part1, part2, input)

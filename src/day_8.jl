@@ -1,5 +1,5 @@
 include("utils.jl");
-input = get_puzzle_input(8);
+const input = get_puzzle_input(8);
 
 inbounds(arr::Vector{Vector{Int64}}, coords) = 
 	coords[1] <= length(arr) && coords[1] > 0 &&
@@ -64,3 +64,5 @@ function part2(input)
 
 	maximum(maximum.(result))
 end
+
+print_solution(part1, part2, input)

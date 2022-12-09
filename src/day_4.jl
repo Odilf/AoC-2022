@@ -1,9 +1,9 @@
-include("utils.jl")
-input = get_puzzle_input(4)
+include("utils.jl");
+const input = get_puzzle_input(4);
 
 Base.in(a::AbstractRange, b::AbstractRange) = first(a) >= first(b) && last(a) <= last(b)
 
-map(filter(x -> x != "", split(input, "\n"))) do line
+part1(input) = map(filter(x -> x != "", split(input, "\n"))) do line
 	ns = split.(split(line, ","), "-")
 	ns = map.(n -> parse(Int, n), ns)
 	
@@ -13,7 +13,7 @@ map(filter(x -> x != "", split(input, "\n"))) do line
 	a ∈ b || b ∈ a
 end |> sum
 
-function intersect(a::UnitRange, b::UnitRange)
+function Base.intersect(a::UnitRange, b::UnitRange)
 	if first(a) > first(b)
 		intersect(b, a)
 	else
@@ -21,7 +21,7 @@ function intersect(a::UnitRange, b::UnitRange)
 	end
 end
 
-map(filter(x -> x != "", split(input, "\n"))) do line
+part2(input) = map(filter(x -> x != "", split(input, "\n"))) do line
 	ns = split.(split(line, ","), "-")
 	ns = map.(n -> parse(Int, n), ns)
 
@@ -30,3 +30,5 @@ map(filter(x -> x != "", split(input, "\n"))) do line
 	
 	length(intersect(a, b)) > 0
 end |> sum
+
+print_solution(part1, part2, input)

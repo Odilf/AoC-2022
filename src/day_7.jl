@@ -1,5 +1,5 @@
 include("utils.jl");
-input = get_puzzle_input(7);
+const input = get_puzzle_input(7);
 
 struct File
 	size::Unsigned
@@ -75,7 +75,6 @@ function part1(input)
 	filesystem = build_filesystem(input)
 	sum = 0
 	size(filesystem, result -> if result <= 100_000
-		println(result)
 		sum += result 
 	end)
 	sum |> Int
@@ -103,3 +102,5 @@ function part2(input)
 	index = findfirst(dir -> size(dir) >= needed_space, directories)
 	return directories[index] |> size |> Int
 end
+
+print_solution(part1, part2, input)
