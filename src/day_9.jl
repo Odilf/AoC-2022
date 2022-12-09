@@ -1,8 +1,6 @@
 include("utils.jl");
 input = get_puzzle_input(9);
 
-using Match
-
 struct Move
 	direction::Vector{<:Integer}
 	amount::Integer
@@ -11,12 +9,11 @@ end
 function Move(input::AbstractString)
 	direction, amount = split(input, " ")
 
-	direction =	
-		  direction == "R" ? [0, 1] 
-		: direction == "L" ? [0, -1]
-		: direction == "U" ? [1, 0]
-		: direction == "D" ? [-1, 0]
-		: error("Invalid direction: $direction")
+	direction =	direction == "R" ? [0, 1] : 
+				direction == "L" ? [0, -1] : 
+				direction == "U" ? [1, 0] : 
+				direction == "D" ? [-1, 0] : 
+				error("Invalid direction: $direction")
 
 	return Move(direction, parse(Int, amount))
 end
