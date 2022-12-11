@@ -42,7 +42,7 @@ function print_solution(part1, part2, input::String)
 
 	@info """
 	The solutions are:
-		- part 1: $sol1
-		- part 2: $sol2
+		- Part 1: $sol1
+		- Part 2: $sol2
 	"""
 end
